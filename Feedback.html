@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+         <a class="navbar-brand" href="#">
+            <img src="img/DinoQuizSaur.png" alt="Logo" class="d-inline-block align-text-top">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="Home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="Information.html">Learn More</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="Quiz.html">Quiz</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="Feedback.html">Feedback</a>
+            </li>
+          </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="review">
+            <h4 style="text-align: center;">How Was The Quiz?</h4>
+        <div class="ratings-container">
+            <div class="rating">
+              <p style='font-size:100px;'>&#128542;</p>
+              <small>Unhappy</small>
+            </div>
+    
+            <div class="rating">
+                <p style='font-size:100px;'>&#128528;</p>
+              <small>Neutral</small>
+            </div>
+    
+            <div class="rating">
+              <p style='font-size:100px;'>&#128513;</p>
+              <small>Satisfied</small>
+            </div>
+          </div>
+
+          <div class="mb-3" id="feedback">
+            <label for="exampleFormControlTextarea1" class="form-label">Anything To Say?</label>
+            <textarea class="form-control bg-transparent border-dark" id="exampleFormControlTextarea1" rows="3" cols="70"></textarea><br>
+            <button type="submit" class="btn btn-outline-secondary">Submit</button>
+          </div>
+      </div>  
+      
+      <script>
+        const ratings = document.querySelectorAll('.rating')
+        const ratingsContainer = document.querySelector('.ratings-container')
+        const sendBtn = document.querySelector('.btn')
+        const review = document.querySelector('.review')
+
+        ratingsContainer.addEventListener('click', (e) => {
+            if(e.target.parentNode.classList.contains('rating')) {
+                removeActive()
+                e.target.parentNode.classList.add('active')
+                selectedRating = e.target.nextElementSibling.innerHTML
+            }
+            if(e.target.classList.contains('rating')) {
+                removeActive()
+                e.target.classList.add('active')
+                selectedRating = e.target.nextElementSibling.innerHTML
+            }
+
+        })
+
+        sendBtn.addEventListener('click', (e) => {
+            review.innerHTML = `
+                Thank You For Your Feedback!
+            
+            `
+        })
+
+
+        function removeActive() {
+            for(let i = 0; i < ratings.length; i++) {
+                ratings[i].classList.remove('active')
+            }
+        }
+      </script>
+
+</body>
+</html>

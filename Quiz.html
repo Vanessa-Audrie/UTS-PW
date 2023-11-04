@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+       <a class="navbar-brand" href="#">
+          <img src="img/DinoQuizSaur.png" alt="Logo" class="d-inline-block align-text-top">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="Home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="Information.html">Learn More</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="Quiz.html">Quiz</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="Feedback.html">Feedback</a>
+          </li>
+        </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="start-screen">
+      <button id="start-button">Start</button>
+    </div>
+    <div id="display-container">
+        <div class="header">
+            <div class="number-of-count">
+                <span class="number-of-question">1 of 10 questions</span>
+            </div>
+            <div class="timer-div">
+                <img src="img/stopwatch-icon.webp" width="20px">
+                <span class="time-left">10s</span>
+            </div>
+        </div>
+        <div id="container">
+        </div>
+        <button id="next-button">Next</button>
+    </div>
+    <div class="score-container hide">
+        <div id="user-score">Demo Score</div>
+        <div id="result">Comment</div>
+        <div class="after">
+        <button id="restart">Restart</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
