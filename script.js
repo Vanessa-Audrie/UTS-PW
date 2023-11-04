@@ -98,14 +98,11 @@ restart.addEventListener("click", () => {
 nextBtn.addEventListener(
     "click",
     (displayNext = () => {
-        //increment questionCount
         questionCount += 1;
-        //if last question
         if (questionCount == quizArray.length) {
             //hide question container and display score
             displayContainer.classList.add("hide");
             scoreContainer.classList.remove("hide");
-            //user score
             userScore.innerHTML =
                 "Your score is " + scoreCount + " out of " + questionCount
             if (scoreCount >= 9) {
@@ -119,10 +116,8 @@ nextBtn.addEventListener(
             }
             
         } else {
-            //display questionCount
             countOfQuestion.innerHTML =
                 questionCount + 1 + " of " + quizArray.length + " Question";
-            //display quiz
             quizDisplay(questionCount);
             count = 11;
             clearInterval(countdown);
@@ -143,7 +138,6 @@ const timerDisplay = () => {
     }, 1000);
 };
 
-//Display quiz
 const quizDisplay = (questionCount) => {
     let quizCards = document.querySelectorAll(".container-mid");
     //Hide other cards
@@ -154,18 +148,12 @@ const quizDisplay = (questionCount) => {
     quizCards[questionCount].classList.remove("hide");
 };
 
-//Quiz Creation
 function quizCreator() {
-    //randomly sort questions
     quizArray.sort(() => Math.random() - 0.5);
-    //generate quiz
     for (let i of quizArray) {
-        //randomly sort options
         i.options.sort(() => Math.random() - 0.5);
-        //quiz card creation
         let div = document.createElement("div");
         div.classList.add("container-mid", "hide");
-        //question number
         countOfQuestion.innerHTML = 1 + " of " + quizArray.length + " Question";
         //question
         let question_DIV = document.createElement("p");
@@ -183,20 +171,19 @@ function quizCreator() {
     }
 }
 
-//Checker Function to check if option is correct or not
+//Cek Answer
 function checker(userOption) {
     let userSolution = userOption.innerText;
     let question =
         document.getElementsByClassName("container-mid")[questionCount];
     let options = question.querySelectorAll(".option-div");
 
-    //if user clicked answer == correct option stored in object
     if (userSolution === quizArray[questionCount].correct) {
         userOption.classList.add("correct");
         scoreCount++;
     } else {
         userOption.classList.add("incorrect");
-        //For marking the correct option
+
         options.forEach((element) => {
             if (element.innerText == quizArray[questionCount].correct) {
                 element.classList.add("correct");
@@ -204,7 +191,7 @@ function checker(userOption) {
         });
     }
 
-    //clear interval(stop timer)
+    //stop timer
     clearInterval(countdown);
     //disable all options
     options.forEach((element) => {
@@ -212,7 +199,6 @@ function checker(userOption) {
     });
 }
 
-//initial setup
 function initial() {
     quizContainer.innerHTML = "";
     questionCount = 0;
@@ -224,7 +210,6 @@ function initial() {
     quizDisplay(questionCount);
 }
 
-//when user click on start button
 startButton.addEventListener("click", () => {
     startScreen.classList.add("hide");
     displayContainer.classList.remove("hide");
